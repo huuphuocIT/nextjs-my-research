@@ -1,0 +1,9 @@
+{
+  "Metadata": {
+    "title": "Next.js Research Starter",
+    "description": "It's a starter code for your Next.js project."
+  },
+  "RootLayout": {
+    "home_link": "Home"
+  }
+}
