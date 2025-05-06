@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Button } from '@/components/atoms/Button';
 
 export const metadata = {
@@ -5,12 +7,18 @@ export const metadata = {
   description: 'Dashboard',
 };
 
-export default async function Dashboard() {
+export default async function DashboardPage() {
   return (
-    <div>
-      <Button variant="default" size="default">
-        {'Default Button'}
-      </Button>
+    <div className="mb-4 flex flex-col gap-2">
+      <div>{'This is content Page'}</div>
+
+      <div>
+        <Link href="/board">
+          <Button variant="default" size="default">
+            {'Go to Board'}
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

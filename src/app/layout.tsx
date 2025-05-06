@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations, getMessages } from 'next-intl/server';
-import { Geist, Geist_Mono } from 'next/font/google';
-import clsx from 'clsx';
+import { Geist, Geist_Mono, Poppins } from 'next/font/google';
+
+import { ConvexClientProvider } from '@/components/organisms/providers/convex-client-provider';
 
 import '@/styles/globals.css';
+import { cn } from '@/libs/utils';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -14,6 +16,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+});
+
+const popins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['600', '700'],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -43,10 +51,15 @@ export default async function RootLayout(props: RootLayoutProps) {
   return (
     <html lang={locale}>
       <body
-        className={clsx(geistSans.variable, geistMono.variable, 'antialiased')}
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          popins.variable,
+          'antialiased',
+        )}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </NextIntlClientProvider>
       </body>
     </html>

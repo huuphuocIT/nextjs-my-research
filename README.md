@@ -20,3 +20,5 @@
 │   └── configs              # Configuration files
 └── tsconfig.json            # TypeScript configuration
 ```
+
+Learned from https://youtu.be/ADJKbuayubE
